@@ -31,7 +31,7 @@ router.post("/edit-user/:id", ensureAuthenticated, async (req,res) => {
         const {id} = req.params;
         const {balance, investment_plans, debt, verify_status, currency} = req.body;
         const customer = await User.findOne({_id:id})
-        if(!balance || !debt || !investment_plans || !verify_status || currency){
+        if(!balance || !debt || !investment_plans || !verify_status || !currency){
             req.flash("error_msg", "Please fill all fields");
             return res.render("editUser", {pageTitle: "Welcome", customer, req});
         }

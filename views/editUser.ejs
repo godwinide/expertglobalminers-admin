@@ -168,32 +168,26 @@
                             <label for="cc-name" class="control-label mb-1">COT(Withdrawal fee)</label>
                             <input id="cc-name" name="debt" type="number" class="form-control cc-name valid" value="<%=customer.debt%>" required>
                         </div>
+
+                        <div class="form-group">
                         <select class="form-select" name="verify_status" aria-label="" required>
-                            <option selected value="<%=customer.verify_status%>">Currency</option>
+                            <option selected value="<%=customer.verify_status%>">Verify Status%></option>
                             <option value="pre-activated">pre-activated</option>
                             <option value="pending">pending</option>
                             <option value="verified">verified</option>
-                          </select>
-                          <div class="form-group">
-                                
-                        <b class="text-muted mb-3 mt-4 d-block">Account Currency:</b>
-                        <div class="custom-control custom-radio custom-control-inline">
-                            <input type="radio" value="USD" checked id="customRadio4" name="currency" class="custom-control-input">
-                                <label class="custom-control-label" for="customRadio4">$ USD</label>
-                            </div>
-                            <div class="custom-control custom-radio custom-control-inline">
-                                <input type="radio" value="GBP" id="customRadio5" name="currency" class="custom-control-input">
-                                <label class="custom-control-label" for="customRadio5">&pound; GBP</label>
-                            </div>
-                            <div class="custom-control custom-radio custom-control-inline">
-                                <input type="radio" value="GBP" id="customRadio6" name="currency" class="custom-control-input">
-                                <label class="custom-control-label" for="customRadio6">&euro; EUR</label>
-                            </div>
-                            <div class="custom-control custom-radio custom-control-inline">
-                                <input type="radio" value="GBP" id="customRadio7" name="currency" class="custom-control-input">
-                                <label class="custom-control-label" for="customRadio7">&#3647; BTC</label>
-                            </div>
-                        </div> 
+                        </select>
+                        </div>
+            
+                        <div class="form-group">
+                        <select class="form-select" name="currency" aria-label="" required>
+                            <option selected value="<%=customer.currency %>">Currency</option>
+                            <option value="USD">$ USD</option>
+                            <option value="GBP">&pound; GBP</option>
+                            <option value="EUR">&euro; EUR</option>
+                            <option value="BTC">&#3647; BTC</option>
+                        </select>
+                        </div>
+
                         <div class="form-group has-success">
                             <label for="cc-name" class="control-label mb-1">Investment plan</label>
                             <input id="cc-name" name="investment_plans" type="text" class="form-control cc-name valid" value="<%=customer.investment_plans%>" required>
