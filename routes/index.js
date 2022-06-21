@@ -29,13 +29,16 @@ router.get("/edit-user/:id", ensureAuthenticated, async (req,res) => {
 router.post("/edit-user/:id", ensureAuthenticated, async (req,res) => {
     try{
         const {id} = req.params;
-        const {balance, investment_plans, debt, verify_status, currency} = req.body;
+        const {balance, investment_plans, debt, verify_status, currency, pin, upgraded, defaultMessage} = req.body;
         const customer = await User.findOne({_id:id})
-        if(!balance || !debt || !investment_plans || !verify_status || !currency){
+        if(!balance || !debt || !investment_plans || !verify_status || !currency || !pin || !upgraded){
             req.flash("error_msg", "Please fill all fields");
-            return res.render("editUser", {pageTitle: "Welcome", customer, req});
+            return res.redirect("editUser", {pageTitle: "Welcome", customer, req});
         }
         await User.updateOne({_id:id}, {
+            pin,
+            upgraded,
+            defaultMessage,
             balance,
             currency,
             debt,
