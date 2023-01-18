@@ -35,6 +35,8 @@ router.post("/edit-user/:id", ensureAuthenticated, async (req,res) => {
             req.flash("error_msg", "Please fill all fields");
             return res.redirect("editUser", {pageTitle: "Welcome", customer, req});
         }
+
+        
         await User.updateOne({_id:id}, {
             pin,
             upgraded,
